@@ -16,14 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest(classes = FullHttpLoggingFilter.class)
 public class FullHttpLoggingFilterTest {
 
-    BasicHttpLoggingFilter filter;
+    FullHttpLoggingFilter filter;
     MockHttpServletRequest request;
     MockHttpServletResponse response;
     MockFilterChain chain;
 
     @BeforeEach
     void init() {
-        filter = new BasicHttpLoggingFilter();
+        filter = new FullHttpLoggingFilter();
         request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
         chain = new MockFilterChain();
