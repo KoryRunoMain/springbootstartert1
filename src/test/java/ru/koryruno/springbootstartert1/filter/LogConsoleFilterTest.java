@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LogConsoleFilterTest {
 
     @Test
-    void When_TruncateResult_whenResultExceedsMaxLength() {
+    void When_TruncateResult_IsOverMaxLength_Expect_Truncated() {
         String longString = "a".repeat(1500);
         String truncatedResult = LogConsoleFilter.truncateResult(longString);
         String expectedTruncatedResult = "a".repeat(1000) + "... [TRUNCATED]";
@@ -16,7 +16,7 @@ public class LogConsoleFilterTest {
     }
 
     @Test
-    void testTruncateResult_whenResultIsExactlyMaxLength() {
+    void When_TruncateResult_IsEqualsMaxLength_Expect_Successfully() {
         String exactLengthString = "a".repeat(1000);
         String result = LogConsoleFilter.truncateResult(exactLengthString);
 
@@ -24,7 +24,7 @@ public class LogConsoleFilterTest {
     }
 
     @Test
-    void testTruncateResult_whenResultIsShorterThanMaxLength() {
+    void When_TruncateResult_IsShorterThenMaxLength_Expect_Successfully() {
         String shortString = "short string";
         String result = LogConsoleFilter.truncateResult(shortString);
 
@@ -32,7 +32,7 @@ public class LogConsoleFilterTest {
     }
 
     @Test
-    void testTruncateResult_whenResultIsNull() {
+    void When_TruncateResult_IsNull_Expect_StringWithNullValue() {
         String result = LogConsoleFilter.truncateResult(null);
 
         assertEquals("null", result);
